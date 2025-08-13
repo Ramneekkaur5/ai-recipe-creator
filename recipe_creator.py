@@ -12,7 +12,7 @@ os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
 
 
 
-# Step 1: Initialize agent
+
 ChefGenius = Agent(
     name="ChefGenius",
     model=Groq(id="qwen/qwen3-32b"),
@@ -20,7 +20,7 @@ ChefGenius = Agent(
     markdown=True
 )
 
-# Step 2: Define prompt generation function
+
 def generate_prompt(input_data):
     return f"""
 You are ChefGenius 🍳, a smart recipe creator.
@@ -42,7 +42,7 @@ You are ChefGenius 🍳, a smart recipe creator.
 Use emojis where helpful!
 """
 
-# Step 3: Provide input and generate response
+
 user_input = {
     "ingredients": ["paneer", "onion", "tomato"],
     "diet": "vegetarian",
@@ -53,5 +53,6 @@ user_input = {
 prompt = generate_prompt(user_input)
 response = ChefGenius.run(prompt, stream=False)
 print(response.content)
+
 
 
